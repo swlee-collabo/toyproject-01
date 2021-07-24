@@ -2,6 +2,9 @@ language: nodejs
 node_js:
   - 16
 
+branches:
+  only:
+    - master
 cache:
   yarn: true
   directories:
@@ -12,6 +15,8 @@ before_deploy:
   - mkdir -p deploy #상위 디렉토리로 이동 후 deploy 디렉토리 생성
   - mv toyproject-01.zip deploy/toyproject-01.zip
 
+script: "true"
+
 deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY
@@ -21,6 +26,16 @@ deploy:
     skip_cleanup: true
     acl: private
     local_dir: deploy
+    wait-until-deployed: true
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: swlee-build
+    key: toyproject-01.zip
+    bundle_type: zip
+    application: toyproj-app-01
+    deployment_group: toyproj-app-01-group
+    region: ap-northeast-2
     wait-until-deployed: true
 
 # CI 실행 완료 시 메일로 알람
