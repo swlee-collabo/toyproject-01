@@ -13,3 +13,4 @@ sudo npm install
 echo "> npm start 애플리케이션 실행"
 
 sudo pm2 start npm -- start
+
