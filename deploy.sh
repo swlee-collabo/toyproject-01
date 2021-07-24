@@ -2,6 +2,10 @@
 
 REPOSITORY=/home/ec2-user/front-end/app
 
+echo "> Repository로 이동"
+
+cd $REPOSITORY/
+
 echo "> sudo npm install 실행"
 
 sudo npm install
