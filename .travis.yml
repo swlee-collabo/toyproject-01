@@ -12,10 +12,6 @@ env:
     - PATH=$HOME/.yarn/bin:$PATH
     - PORT=3000
 
-branches:
-  only:
-    - master
-
 before_deploy:
   - mkdir -p before-deploy
   - cd before-deploy && zip -r before-deploy * #before-deploy로 이동 후 전체 압축
