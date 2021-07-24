@@ -12,4 +12,4 @@ sudo npm install
 
 echo "> npm start 애플리케이션 실행"
 
-sudo nohup npm start
+sudo nohup npm start &
