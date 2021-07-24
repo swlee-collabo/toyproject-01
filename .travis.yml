@@ -10,7 +10,6 @@ cache:
 env:
   global:
     - PATH=$HOME/.yarn/bin:$PATH
-    - PORT=3000
 
 before_deploy:
   - zip -r toyproject-01 *
