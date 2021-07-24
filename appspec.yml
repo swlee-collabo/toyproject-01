@@ -18,5 +18,5 @@ hooks:
       runas: ec2-user
   ApplicationStart:
     - location: deploy.sh #엔진엑스와 연결되어 있지 않은 Port로 새 버전의 스프링부트를 시작
-      timeout: 120
+      timeout: 60
       runas: ec2-user

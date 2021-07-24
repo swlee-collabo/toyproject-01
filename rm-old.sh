@@ -18,8 +18,8 @@ fi
 
 echo "> app 폴더 삭제"
 
-sudo rm -rdf app
+sudo rm -rdf $REPOSITORY/app
 
 echo "> 새로운 app 폴더 생성"
 
-sudo mkdir app
+sudo mkdir $REPOSITORY/app
