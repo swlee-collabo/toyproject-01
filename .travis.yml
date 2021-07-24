@@ -1,6 +1,6 @@
 language: nodejs
 node_js:
-  - 12
+  - 16
 
 branches:
   only:
@@ -11,11 +11,10 @@ cache:
   - node_modules
 
 before_deploy:
-  - CI=false npm run build
-  - cp appspec.yml build/
-  - cd build && zip -r build *
-  - cd .. && mkdir -p deploy #상위 디렉토리로 이동 후 deploy 디렉토리 생성
-  - mv build/build.zip deploy/toyproject-01.zip
+  - rm -rdf node_modules 
+  - zip -r toyproject-01 *
+  - mkdir -p deploy #상위 디렉토리로 이동 후 deploy 디렉토리 생성
+  - mv toyproject-01.zip deploy/toyproject-01.zip
 
 script: "true"
 
@@ -35,8 +34,8 @@ deploy:
     bucket: swlee-build
     key: toyproject-01.zip
     bundle_type: zip
-    application: toyproj-01-app
-    deployment_group: toyproj-01-app-group
+    application: toyproj-app-01
+    deployment_group: toyproj-app-01-group
     region: ap-northeast-2
     wait-until-deployed: true
 
