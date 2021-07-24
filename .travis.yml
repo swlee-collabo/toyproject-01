@@ -11,9 +11,10 @@ cache:
   - node_modules
 
 before_deploy:
-  - zip -r toyproject-01 *
-  - mkdir -p deploy #상위 디렉토리로 이동 후 deploy 디렉토리 생성
-  - mv toyproject-01.zip deploy/toyproject-01.zip
+  - npm run build
+  - cd build && zip -r build *
+  - cd .. && mkdir -p deploy #상위 디렉토리로 이동 후 deploy 디렉토리 생성
+  - mv build/build.zip deploy/toyproject-01.zip
 
 script: "true"
 
