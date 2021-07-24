@@ -11,7 +11,7 @@ cache:
   - node_modules
 
 before_deploy:
-  - rm -rdf node_modules 
+  - rm -rdf node_modules
   - zip -r toyproject-01 *
   - mkdir -p deploy #상위 디렉토리로 이동 후 deploy 디렉토리 생성
   - mv toyproject-01.zip deploy/toyproject-01.zip
@@ -34,8 +34,8 @@ deploy:
     bucket: swlee-build
     key: toyproject-01.zip
     bundle_type: zip
-    application: toyproj-app-01
-    deployment_group: toyproj-app-01-group
+    application: toyproj-01-app
+    deployment_group: toyproj-01-app-group
     region: ap-northeast-2
     wait-until-deployed: true
 
