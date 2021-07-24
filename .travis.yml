@@ -10,6 +10,10 @@ cache:
   directories:
   - node_modules
 
+process:
+  env:
+    CI: false
+
 before_deploy:
   - npm run build
   - cd build && zip -r build *
