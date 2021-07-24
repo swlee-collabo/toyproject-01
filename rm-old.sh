@@ -18,6 +18,7 @@ fi
 
 echo "> app 폴더 삭제"
 
+sudo rm -rdf $REPOSITORY/app/node_modules
 sudo rm -rdf $REPOSITORY/app
 
 echo "> 새로운 app 폴더 생성"
