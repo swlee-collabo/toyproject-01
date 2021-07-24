@@ -1,6 +1,6 @@
 language: nodejs
 node_js:
-  - 16
+  - 12
 
 branches:
   only:
@@ -10,12 +10,8 @@ cache:
   directories:
   - node_modules
 
-process:
-  env:
-    CI: false
-
 before_deploy:
-  - npm run build
+  - CI=false npm run build
   - cd build && zip -r build *
   - cd .. && mkdir -p deploy #상위 디렉토리로 이동 후 deploy 디렉토리 생성
   - mv build/build.zip deploy/toyproject-01.zip
