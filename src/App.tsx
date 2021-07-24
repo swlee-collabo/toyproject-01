@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="App">
-      <div id="map" style={{ width: "100vw", height: "100vh" }} />
+      <div id="map" style={{ width: "110`vw", height: "110vh" }} />
     </div>
   );
 }
